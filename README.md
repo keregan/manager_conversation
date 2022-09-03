@@ -8,5 +8,5 @@ To clone the repository, you need to enter the command in the console:
     
 Further use requires:
 
-    $ import csv
-    $ import shutil
+    import csv
+    import shutil
