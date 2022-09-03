@@ -2,4 +2,5 @@
 
 To clone the repository, you need to enter the command in the console:
 
-    $ git clone https://github.com/keregan/keregan.github.io.git
+    $ git clone https://github.com/keregan/manager
+
