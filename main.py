@@ -1,4 +1,5 @@
 import csv
+import shutil
 
 greetings_all = ['здравствуйте', 'здраствуй', 'здрасте', 'приветствую']
 farewell_all = ['досвидания', 'до встречи', 'всего доброго', 'всего хорошего']
@@ -31,15 +32,15 @@ def main():
                     break
                 self_presentation = False
 
-            for name in self_presentation_all:
-                if name in text_message:
-                    manager_name = text_message.partition(name)[2].split()[0]
+            for s_name in self_presentation_all:
+                if s_name in text_message:
+                    manager_name = text_message.partition(s_name)[2].split()[0]
                     break
                 manager_name = False
 
-            for name in company_name_all:
-                if name in text_message:
-                    company_name = text_message.partition(name)[2].split()[0]
+            for c_name in company_name_all:
+                if c_name in text_message:
+                    company_name = text_message.partition(c_name)[2].split()[0]
                     break
                 company_name = False
 
@@ -52,6 +53,15 @@ def main():
             print('text_message = ', text_message, '\n greetings = ', greetings, '\n self_presentation = ',
                   self_presentation, '\n manager_name = ', manager_name, '\n company_name = ',
                   company_name, '\n said_goodbye = ', said_goodbye, '\n farewell = ', farewell)
+
+        shutil.copy('test_data.csv', 'test_data_2.csv')
+
+        file_new = open('test_data_2.csv', 'a', encoding='utf-8')
+        end_text = ',\ngreetings,' + str(greetings) + '\nself_presentation,' + \
+                   self_presentation + '\nmanager_name,' + manager_name + '\ncompany_name,' + \
+                   company_name + '\nsaid_goodbye,' + said_goodbye + '\nfarewell,' + str(farewell)
+        file_new.write(end_text)
+        file_new.close()
 
 
 if __name__ == '__main__':
